@@ -28,7 +28,7 @@ Package.onUse(function(api) {
 	api.addAssets('js/freeboard.plugins.min.js', 'client');
 	api.addAssets('index.html', 'client');
 
-	api.addAssets('assets/index.html', 'client');
+	api.addAssets('assets/index.js', 'client');
 
 });
 
