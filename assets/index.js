@@ -1,9 +1,3 @@
-$.ajaxSetup({
-	beforeSend:function (){
-		alert("beforeSend")
-	}
-});
-
 dashboardExtend = {
 	jQueryUrl:function(name){
 		var reg = new RegExp("(^|&)"+name+"=([^&]*)(&|$)"); 
@@ -27,17 +21,10 @@ dashboardExtend = {
 				dashboardContent = JSON.stringify(freeboard.serialize());
 			}
 			//调用后台相关接口把newdashboardContent保存到后台数据库
-			// $.post("/api/dashboard/"+dashboardId,{freeboard:dashboardContent},function(data){
-			// 	console.log("-------------post--------------")
-			// 	console.log(data)
-			// })
 			$.ajax({
 				url:"/api/dashboard/"+dashboardId,
 				data:{freeboard:dashboardContent},
 				type:"post",
-				beforeSend:function (){
-					alert("--post--");
-				},
 
 				success:function(data){
 
@@ -49,8 +36,7 @@ dashboardExtend = {
 		var userId = this.cookieVal("X-User-Id");
 		var tokenId = this.cookieVal("X-Auth-Token");
 		var spaceId = this.jQueryUrl("spaceId");
-		console.log(userId,tokenId,spaceId);
-		//return [{name:"X-User-Id",value:userId},{name:"X-Auth-Token",value:tokenId},{name:"X-Space-Id",value:spaceId}];
+		var headerlist = [{name:"X-User-Id",value:userId},{name:"X-Auth-Token",value:tokenId},{name:"X-Space-Id",value:spaceId}];
 		dashboardContent.datasources.forEach(function(data){
 			if(data){
 				headers = data.settings.headers;
@@ -58,9 +44,16 @@ dashboardExtend = {
 				return false;
 			}
 			if(headers){
-				headers.push({name:"X-User-Id",value:userId},{name:"X-Auth-Token",value:tokenId},{name:"X-Space-Id",value:spaceId});
+				headerlist.forEach(function(item){
+					headers.forEach(function(header,index){
+						if(header.name == item.name){
+							headers.splice(index,1);
+						}
+					})
+					headers.push(item);
+				})
 			}else{
-				headers:[{name:"X-User-Id",value:userId},{name:"X-Auth-Token",value:tokenId},{name:"X-Space-Id",value:spaceId}];
+				headers:headerlist;
 			}
 		})
 	}
@@ -85,7 +78,7 @@ head.js("js/freeboard_plugins.min.js",
 						// 根据接口返回的编辑权限执行freeboard.initialize函数
 						//dashboardContent.datasources[0].settings.headers=dashboardExtend.dataHeaders();
 						dashboardExtend.changeDashboardHeaders(dashboardContent);
-						debugger;
+						//console.log("dashboardContent is:"+JSON.stringify(dashboardContent));
 						freeboard.initialize(true);
 						// 根据接口返回的脚本内容执行freeboard.loadDashboard加载dashboard脚本
 						freeboard.loadDashboard(dashboardContent);
