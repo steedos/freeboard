@@ -29,6 +29,7 @@ Package.onUse(function(api) {
 	api.addAssets('index.html', 'client');
 
 	api.addAssets('assets/index.js', 'client');
+	api.addAssets('assets/index.css', 'client');
 
 });
 

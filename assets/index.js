@@ -32,11 +32,20 @@ dashboardExtend = {
 			})
 		});
 	},
+	dashboardHeadersUniq:function(headerList){
+		headerList.map(function(header,index){
+			if(header.name == "X-User-Id" || header.name == "X-Auth-Token" || header.name == "X-Space-Id"){
+				return false;
+			}else{
+				return header;
+			}
+		})
+		return _.compact(headerList);
+	},
 	changeDashboardHeaders:function(dashboardContent){
 		var userId = this.cookieVal("X-User-Id");
 		var tokenId = this.cookieVal("X-Auth-Token");
 		var spaceId = this.jQueryUrl("spaceId");
-		var headerlist = [{name:"X-User-Id",value:userId},{name:"X-Auth-Token",value:tokenId},{name:"X-Space-Id",value:spaceId}];
 		dashboardContent.datasources.forEach(function(data){
 			if(data){
 				headers = data.settings.headers;
@@ -44,16 +53,10 @@ dashboardExtend = {
 				return false;
 			}
 			if(headers){
-				headerlist.forEach(function(item){
-					headers.forEach(function(header,index){
-						if(header.name == item.name){
-							headers.splice(index,1);
-						}
-					})
-					headers.push(item);
-				})
+				headers = dashboardExtend.dashboardHeadersUniq(headers);
+				headers.push({name:"X-User-Id",value:userId},{name:"X-Auth-Token",value:tokenId},{name:"X-Space-Id",value:spaceId});
 			}else{
-				headers:headerlist;
+				headers:[{name:"X-User-Id",value:userId},{name:"X-Auth-Token",value:tokenId},{name:"X-Space-Id",value:spaceId}];
 			}
 		})
 	}
@@ -79,7 +82,7 @@ head.js("js/freeboard_plugins.min.js",
 						//dashboardContent.datasources[0].settings.headers=dashboardExtend.dataHeaders();
 						dashboardExtend.changeDashboardHeaders(dashboardContent);
 						//console.log("dashboardContent is:"+JSON.stringify(dashboardContent));
-						freeboard.initialize(true);
+						freeboard.initialize(data.isEditable);
 						// 根据接口返回的脚本内容执行freeboard.loadDashboard加载dashboard脚本
 						freeboard.loadDashboard(dashboardContent);
 						dashboardExtend.saveDashboardContent(dashboardId);
