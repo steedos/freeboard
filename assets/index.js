@@ -80,8 +80,9 @@ head.js("js/freeboard_plugins.min.js",
 						//console.log("dashboardContent is:"+JSON.stringify(dashboardContent));
 						freeboard.initialize(data.isEditable);
 						// 根据接口返回的脚本内容执行freeboard.loadDashboard加载dashboard脚本
-						freeboard.setEditing(false,false);
-						freeboard.loadDashboard(dashboardContent);
+						freeboard.loadDashboard(dashboardContent,function(){
+							freeboard.setEditing(false,false);
+						});
 						dashboardExtend.saveDashboardContent(dashboardId);
 					}
 				})
