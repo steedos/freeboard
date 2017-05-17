@@ -7,3 +7,15 @@ html,body{
 #board-content{
 	background: transparent;
 }
+
+.ready .gs_w:not(.preview-holder){
+	background: rgba(42, 42, 42, 0.64);
+}
+
+.gridster header{
+	background: rgba(39, 39, 39, 0.45);
+}
+
+.table-responsive td a{
+	color: #d3d4d4;
+}
