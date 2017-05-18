@@ -9,7 +9,7 @@ html,body{
 }
 
 .ready .gs_w:not(.preview-holder){
-	background: rgba(42, 42, 42, 0.8);
+	background: rgba(42, 42, 42, 0.62);
 }
 
 .gridster header{

@@ -11,7 +11,7 @@ dashboardExtend = {
 		if (arr != null) return unescape(arr[2]);
 		return null;
 	},
-	saveDashboardContent:function(dashboardId){
+	bindDashboardSaveEvent:function(dashboardId){
 		$("[data-pretty]").off("click");
 		$("[data-pretty]").on("click",function(){
 			var pretty = $(event.currentTarget).data('pretty');
@@ -78,12 +78,12 @@ head.js("js/freeboard_plugins.min.js",
 						//dashboardContent.datasources[0].settings.headers=dashboardExtend.dataHeaders();
 						dashboardExtend.changeDashboardHeaders(dashboardContent);
 						//console.log("dashboardContent is:"+JSON.stringify(dashboardContent));
-						freeboard.initialize(data.isEditable);
+						freeboard.initialize(true);
 						// 根据接口返回的脚本内容执行freeboard.loadDashboard加载dashboard脚本
-						freeboard.loadDashboard(dashboardContent,function(){
-							freeboard.setEditing(false,false);
-						});
-						dashboardExtend.saveDashboardContent(dashboardId);
+						dashboardContent.allow_edit = data.isEditable;
+						freeboard.loadDashboard(dashboardContent);
+						freeboard.setEditing(false);
+						dashboardExtend.bindDashboardSaveEvent(dashboardId);
 					}
 				})
 			}
