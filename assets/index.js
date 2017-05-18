@@ -37,24 +37,26 @@ dashboardExtend = {
 		var tokenId = this.cookieVal("X-Auth-Token");
 		console.log("X-Auth-Token is:"+tokenId);
 		var spaceId = this.jQueryUrl("spaceId");
-		dashboardContent.datasources.forEach(function(data){
-			if(data){
-				headers = data.settings.headers;
-			}else{
-				return false;
-			}
-			headers.forEach(function(header){
-				if(header.name == "X-User-Id"){
-					header.value = userId;
+		if(dashboardContent.datasources){
+			dashboardContent.datasources.forEach(function(data){
+				if(data){
+					headers = data.settings.headers;
+				}else{
+					return false;
 				}
-				if(header.name == "X-Auth-Token"){
-					header.value = tokenId;
-				}
-				if(header.name == "X-Space-Id"){
-					header.value = spaceId;
-				}
+				headers.forEach(function(header){
+					if(header.name == "X-User-Id"){
+						header.value = userId;
+					}
+					if(header.name == "X-Auth-Token"){
+						header.value = tokenId;
+					}
+					if(header.name == "X-Space-Id"){
+						header.value = spaceId;
+					}
+				})
 			})
-		})
+		}
 	}
 };
 head.js("js/freeboard_plugins.min.js",
