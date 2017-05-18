@@ -8,6 +8,10 @@ html,body{
 	background: transparent;
 }
 
+header h1{
+	font-size: 18px;
+}
+
 .ready .gs_w:not(.preview-holder){
 	background: rgba(42, 42, 42, 0.62);
 }
