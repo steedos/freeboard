@@ -79,8 +79,9 @@ head.js("js/freeboard_plugins.min.js",
 						freeboard.initialize(true);
 						// 根据接口返回的脚本内容执行freeboard.loadDashboard加载dashboard脚本
 						dashboardContent.allow_edit = data.isEditable;
-						freeboard.loadDashboard(dashboardContent);
-						freeboard.setEditing(false);
+						freeboard.loadDashboard(dashboardContent,function(){
+							freeboard.setEditing(false,false);
+						});
 						dashboardExtend.bindDashboardSaveEvent(dashboardId);
 					}
 				})
