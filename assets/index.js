@@ -66,7 +66,7 @@ head.js("js/freeboard_plugins.min.js",
 			var dashboardId,dashboardContent;
 			dashboardId = dashboardExtend.jQueryUrl("dashboardId");
 
-			if (dashboardId != null){
+			if (dashboardId){
 	
 				$.ajax({
 					url: "/api/dashboard/"+dashboardId,
