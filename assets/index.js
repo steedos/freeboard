@@ -35,7 +35,6 @@ dashboardExtend = {
 	changeDashboardHeaders:function(dashboardContent){
 		var userId = this.cookieVal("X-User-Id");
 		var tokenId = this.cookieVal("X-Auth-Token");
-		console.log("X-Auth-Token is:"+tokenId);
 		var spaceId = this.jQueryUrl("spaceId");
 		if(dashboardContent.datasources){
 			dashboardContent.datasources.forEach(function(data){
@@ -66,7 +65,6 @@ head.js("js/freeboard_plugins.min.js",
 			// 需要根据url中dashboardId调用后台相关接口，返回dashboard脚本内容及编辑权限等
 			var dashboardId,dashboardContent;
 			dashboardId = dashboardExtend.jQueryUrl("dashboardId");
-			console.log(dashboardId);
 
 			if (dashboardId != null){
 	
@@ -77,9 +75,7 @@ head.js("js/freeboard_plugins.min.js",
 					success: function(data){
 						dashboardContent = JSON.parse(data.freeboard);
 						// 根据接口返回的编辑权限执行freeboard.initialize函数
-						//dashboardContent.datasources[0].settings.headers=dashboardExtend.dataHeaders();
 						dashboardExtend.changeDashboardHeaders(dashboardContent);
-						//console.log("dashboardContent is:"+JSON.stringify(dashboardContent));
 						freeboard.initialize(true);
 						// 根据接口返回的脚本内容执行freeboard.loadDashboard加载dashboard脚本
 						dashboardContent.allow_edit = data.isEditable;
