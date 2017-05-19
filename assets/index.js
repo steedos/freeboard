@@ -73,7 +73,7 @@ head.js("js/freeboard_plugins.min.js",
 					type: "get",
 
 					success: function(data){
-						dashboardContent = JSON.parse(data.freeboard);
+						dashboardContent = data.freeboard ? JSON.parse(data.freeboard) : {};
 						// 根据接口返回的编辑权限执行freeboard.initialize函数
 						dashboardExtend.changeDashboardHeaders(dashboardContent);
 						freeboard.initialize(true);
