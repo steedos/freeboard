@@ -34,3 +34,16 @@ header h1{
 .table-responsive td a{
 	color: #d3d4d4;
 }
+
+.ready .gs_w:not(.preview-holder) .widget-icon,.widget-title{
+	text-align: center;
+}
+
+.ready .gs_w:not(.preview-holder) .widget-title{
+	margin-top: 15px;
+}
+
+.ready .gs_w:not(.preview-holder) .widget-icon .ion{
+	font-size: 350%;
+	color: #eee;
+}

@@ -30,7 +30,12 @@ Package.onUse(function(api) {
 
 	api.addAssets('assets/index.js', 'client');
 	api.addAssets('assets/index.css', 'client');
-
+	
+	api.addAssets('assets/ionicons.css', 'client');
+	api.addAssets('assets/fonts/ionicons.eot', 'client');
+	api.addAssets('assets/fonts/ionicons.svg', 'client');
+	api.addAssets('assets/fonts/ionicons.ttf', 'client');
+	api.addAssets('assets/fonts/ionicons.woff', 'client');
 });
 
 Package.onTest(function(api) {
