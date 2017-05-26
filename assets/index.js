@@ -66,6 +66,9 @@ head.js("js/freeboard_plugins.min.js",
 			var dashboardId,dashboardContent;
 			dashboardId = dashboardExtend.jQueryUrl("dashboardId");
 
+			var zoomValue = "zoom-"+localStorage.getItem("accountZoomValue.name");
+			$("body").removeClass("zoom-normal").removeClass("zoom-large").removeClass("zoom-extra-large");
+			$("body").addClass(zoomValue);
 			if (dashboardId){
 	
 				$.ajax({
