@@ -8,44 +8,12 @@ html,body{
 	background: transparent;
 }
 
-.gridster header{
-	height: 38px;
-}
-
-header h1{
-	font-size: 18px;
-	color: #f5f5f9;
-	height: 38px;
-	line-height: 38px;
-}
-
-.table thead th{
-	color: #eee;
-}
-
-.ready .gs_w:not(.preview-holder){
-	background: rgba(42, 42, 42, 0.62);
-}
-
-.gridster header{
-	background: rgba(39, 39, 39, 0.45);
-}
-
-.table-responsive td a{
-	color: #d3d4d4;
-}
-
 .ready .gs_w:not(.preview-holder) .widget-icon,.widget-title{
 	text-align: center;
 }
 
 .ready .gs_w:not(.preview-holder) .widget-title{
 	margin-top: 15px;
-}
-
-.ready .gs_w:not(.preview-holder) .widget-icon .ion{
-	font-size: 350%;
-	color: #eee;
 }
 
 .ready .gs_w:not(.preview-holder) .pannel{
@@ -117,4 +85,56 @@ header h1{
 
 .zoom-large [data-col="5"]{
 	left: 1084px;
+}
+
+.dark .gridster header{
+	height: 38px;
+	background: rgba(39, 39, 39, 0.45);
+}
+
+.dark header h1{
+	font-size: 18px;
+	color: #f5f5f9;
+	height: 38px;
+	line-height: 38px;
+}
+
+.dark .ready .gs_w:not(.preview-holder){
+	background: rgba(42, 42, 42, 0.62);
+}
+
+.dark a,span,i{
+	color: #eee;
+}
+
+.dark .ready .gs_w:not(.preview-holder) .widget-icon .ion{
+	font-size: 350%;
+	color: #eee;
+}
+
+.light .ready .gs_w:not(.preview-holder){
+	background: rgb(255, 255, 255);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.light a,span,i{
+	color: #333;
+}
+
+.light .ready .gs_w:not(.preview-holder) .widget-icon .ion{
+	font-size: 350%;
+	color: #333;
+}
+
+.light .gridster header{
+	height: 38px;
+	background: rgb(194, 230, 230);
+	border-bottom: 1px solid #d2d6de;
+}
+
+.light header h1{
+	font-size: 18px;
+	color: #333;
+	height: 38px;
+	line-height: 38px;
 }
