@@ -8,19 +8,45 @@ html,body{
 	background: transparent;
 }
 
-.ready .gs_w:not(.preview-holder) .widget-icon,.widget-title{
+.text-overflow {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.ready .gs_w:not(.preview-holder) .widget-grids .widget-grid{
+	width: 33.33333333%;
+	height: 68px;
+	float: left;
+	margin: 12px 0;
+	display: block;
+	text-decoration: none;
+}
+
+.ready .gs_w:not(.preview-holder) .widget-grids{
+	margin: 8px 10px;
+}
+
+.ready .gs_w:not(.preview-holder) .widget-grids .widget-grid .widget-grid-icon{
+	text-align: center;
+	width: 27px;
+	height: 40px;
+	margin: auto;
+}
+
+.ready .gs_w:not(.preview-holder) .widget-grids .widget-grid .widget-grid-label{
+	margin-top: 5px;
 	text-align: center;
 }
 
-.ready .gs_w:not(.preview-holder) .widget-title{
-	margin-top: 15px;
+.ready .gs_w:not(.preview-holder) .widget-grids .widget-grid .widget-grid-wrapper {
+	padding: 6px;
 }
 
-.ready .gs_w:not(.preview-holder) .pannel{
-	width: 50%;
-    height: 108px;
-    float: left;
-    margin: 13px 0;
+.ready .gs_w:not(.preview-holder) .widget-grids .widget-grid .widget-grid-icon .ion{
+	font-size: 36px;
+	color: #008d4c;
+	margin: auto;
 }
 
 .zoom-extra-large .ready .gs_w:not(.preview-holder){
@@ -107,8 +133,7 @@ html,body{
 	color: #eee;
 }
 
-.dark .ready .gs_w:not(.preview-holder) .widget-icon .ion{
-	font-size: 350%;
+.dark .ready .gs_w:not(.preview-holder) .widget-grids .widget-grid .widget-grid-icon .ion{
 	color: #eee;
 }
 
@@ -121,14 +146,9 @@ html,body{
 	color: #333;
 }
 
-.light .ready .gs_w:not(.preview-holder) .widget-icon .ion{
-	font-size: 350%;
-	color: #333;
-}
-
 .light .gridster header{
 	height: 38px;
-	background: rgb(229, 234, 234);
+	background: #f3f3f3;
 	border-bottom: 1px solid #d2d6de;
 }
 
