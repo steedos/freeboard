@@ -14,6 +14,10 @@ html,body{
 	white-space: nowrap;
 }
 
+.ready .gs_w:not(.preview-holder) .pending .table-responsive ul li span:hover{
+	text-decoration: underline;
+}
+
 .ready .gs_w:not(.preview-holder) .widget-grids .widget-grid{
 	width: 33.33333333%;
 	height: 68px;
