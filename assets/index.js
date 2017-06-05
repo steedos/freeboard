@@ -68,7 +68,7 @@ head.js("js/freeboard_plugins.min.js",
 
 			var zoomValue = "zoom-"+localStorage.getItem("accountZoomValue.name");
 			$("body").removeClass("zoom-normal").removeClass("zoom-large").removeClass("zoom-extra-large");
-			$("body").addClass(zoomValue);
+			$("body").addClass("zoom-extra-large");
 			$("body").addClass("light");
 			if (dashboardId){
 	
