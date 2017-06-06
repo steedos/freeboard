@@ -70,6 +70,7 @@ head.js("js/freeboard_plugins.min.js",
 			$("body").removeClass("zoom-normal").removeClass("zoom-large").removeClass("zoom-extra-large");
 			$("body").addClass("zoom-extra-large");
 			$("body").addClass("light");
+			$("body").addClass("li-height-auto");
 			if (dashboardId){
 	
 				$.ajax({

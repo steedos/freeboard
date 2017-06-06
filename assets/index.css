@@ -14,7 +14,7 @@ html,body{
 	white-space: nowrap;
 }
 
-.ready .gs_w:not(.preview-holder) .pending .widget-datatable a:hover,a:focus{
+.ready .gs_w:not(.preview-holder) .pending a:hover,a:focus{
 	text-decoration: none;
 }
 
@@ -36,9 +36,9 @@ table.dataTable.widget-datatable.no-footer{
 
 .ready .gs_w:not(.preview-holder) .widget-grids .widget-grid{
 	width: 33.33333333%;
-	height: 68px;
+	height: 80px;
 	float: left;
-	margin: 12px 0;
+	margin: 6px 0;
 	display: block;
 	text-decoration: none;
 }
@@ -59,10 +59,6 @@ table.dataTable.widget-datatable.no-footer{
 	text-align: center;
 }
 
-.ready .gs_w:not(.preview-holder) .widget-grids .widget-grid .widget-grid-wrapper {
-	padding: 6px;
-}
-
 .ready .gs_w:not(.preview-holder) .widget-grids .widget-grid .widget-grid-icon .ion{
 	font-size: 36px;
 	color: #008d4c;
@@ -75,6 +71,7 @@ table.dataTable.widget-datatable.no-footer{
 
 .zoom-extra-large [data-sizex="2"]{
 	width: 462px;
+	left: 254px;
 }
 
 .zoom-extra-large [data-col="3"]{
@@ -82,7 +79,11 @@ table.dataTable.widget-datatable.no-footer{
 }
 
 .zoom-extra-large [data-sizex="1"]{
-	width: 212px;
+	width: 240px;
+}
+
+.zoom-extra-large [data-col="1"]{
+	left: -4px;
 }
 
 .zoom-extra-large [data-sizex="3"]{
@@ -139,6 +140,7 @@ table.dataTable.widget-datatable.no-footer{
 }
 
 .dark header h1{
+	margin: 4px;
 	font-size: 16px;
 	color: #f5f5f9;
 	height: 38px;
@@ -173,8 +175,13 @@ table.dataTable.widget-datatable.no-footer{
 }
 
 .light header h1{
+	margin: 4px;
 	font-size: 16px;
 	color: #333;
 	height: 38px;
 	line-height: 38px;
+}
+
+.li-height-auto .ready .gs_w:not(.preview-holder){
+	height: auto;
 }
