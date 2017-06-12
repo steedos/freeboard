@@ -30,6 +30,9 @@ Package.onUse(function(api) {
 
 	api.addAssets('assets/index.js', 'client');
 	api.addAssets('assets/index.css', 'client');
+	api.addAssets('assets/data-tables.css', 'client');
+	api.addAssets('assets/jquery-1.10.2.min.js', 'client');
+	api.addAssets('assets/jquery.dataTables.js', 'client');
 	
 	api.addAssets('assets/ionicons.css', 'client');
 	api.addAssets('assets/fonts/ionicons.eot', 'client');
