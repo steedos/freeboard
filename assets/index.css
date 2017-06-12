@@ -62,6 +62,10 @@ table.dataTable.widget-datatable.no-footer{
 	font-size: 36px;
 	color: #008d4c;
 	margin: auto;
+}	
+
+.ready .gs_w:not(.preview-holder) .widget-grids .widget-grid .widget-grid-icon .fa{
+	margin-left: -5px;
 }
 
 body.zoom-extra-large{

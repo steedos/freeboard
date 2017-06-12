@@ -39,6 +39,15 @@ Package.onUse(function(api) {
 	api.addAssets('assets/fonts/ionicons.svg', 'client');
 	api.addAssets('assets/fonts/ionicons.ttf', 'client');
 	api.addAssets('assets/fonts/ionicons.woff', 'client');
+
+	api.addAssets('assets/font-awesome-4.7.0/css/font-awesome.min.css', 'client');
+	api.addAssets('assets/font-awesome-4.7.0/fonts/fontawesome-webfont.eot', 'client');
+	api.addAssets('assets/font-awesome-4.7.0/fonts/fontawesome-webfont.svg', 'client');
+	api.addAssets('assets/font-awesome-4.7.0/fonts/fontawesome-webfont.ttf', 'client');
+	api.addAssets('assets/font-awesome-4.7.0/fonts/fontawesome-webfont.woff', 'client');
+	api.addAssets('assets/font-awesome-4.7.0/fonts/fontawesome-webfont.woff2', 'client');
+	api.addAssets('assets/font-awesome-4.7.0/fonts/FontAwesome.otf', 'client');
+
 });
 
 Package.onTest(function(api) {
