@@ -1,6 +1,6 @@
 Package.describe({
 	name: 'steedos:freeboard',
-	version: "1.1.3_7",
+	version: "1.1.3_8",
 	summary: "freeboard",
 	git: "https://github.com/steedos/freeboard"
 });

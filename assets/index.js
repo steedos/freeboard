@@ -65,10 +65,7 @@ head.js("js/freeboard_plugins.min.js",
 			// 需要根据url中dashboardId调用后台相关接口，返回dashboard脚本内容及编辑权限等
 			var dashboardId,dashboardContent;
 			dashboardId = dashboardExtend.jQueryUrl("dashboardId");
-
-			var zoomValue = "zoom-"+localStorage.getItem("accountZoomValue.name");
-			$("body").removeClass("zoom-normal").removeClass("zoom-large").removeClass("zoom-extra-large");
-			$("body").addClass(zoomValue);
+			
 			$("body").addClass("light");
 			$("body").addClass("li-height-auto");
 			if (dashboardId){
