@@ -3,6 +3,7 @@
 }
 html,body{
 	background: transparent;
+	font-family:-apple-system, BlinkMacSystemFont, Helvetica, Arial, Microsoft Yahei, SimHei;
 }
 #board-content{
 	background: transparent;
