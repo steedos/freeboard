@@ -38,7 +38,9 @@ Package.onUse(function(api) {
 	api.addAssets('assets/fonts/ionicons.eot', 'client');
 	api.addAssets('assets/fonts/ionicons.svg', 'client');
 	api.addAssets('assets/fonts/ionicons.ttf', 'client');
-	api.addAssets('assets/fonts/ionicons.woff', 'client');
+	api.addAssets('assets/material/material-dashboard.css', 'client');
+	api.addAssets('assets/material/bootstrap.min.css', 'client');
+	api.addAssets('assets/img/logo.jpg', 'client');
 
 	api.addAssets('assets/font-awesome-4.7.0/css/font-awesome.min.css', 'client');
 	api.addAssets('assets/font-awesome-4.7.0/fonts/fontawesome-webfont.eot', 'client');
