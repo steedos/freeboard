@@ -2,7 +2,7 @@
 	overflow: auto;
 }
 html,body{
-	background: transparent;
+	background: rgba(255, 255, 255, 0.8) !important;
 	font-family:-apple-system, BlinkMacSystemFont, Helvetica, Arial, Microsoft Yahei, SimHei;
 }
 #board-content{

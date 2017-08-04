@@ -547,7 +547,7 @@ h2.title {
   margin: 10px 10px;
   color: #FFFFFF;
   line-height: 20px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  // font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .sidebar .logo .simple-text,
 .off-canvas-sidebar .logo .simple-text {
@@ -1481,13 +1481,13 @@ blockquote p {
 }
 
 body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  // font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-weight: 300;
   line-height: 1.5em;
 }
 
 .serif-font {
-  font-family: "Roboto Slab", "Times New Roman", serif;
+  // font-family: "Roboto Slab", "Times New Roman", serif;
 }
 
 .page-header {
@@ -5065,11 +5065,11 @@ footer .btn {
 }
 
 .card:hover [data-header-animation="true"] {
-  -webkit-transform: translate3d(0, -50px, 0);
-  -moz-transform: translate3d(0, -50px, 0);
-  -o-transform: translate3d(0, -50px, 0);
-  -ms-transform: translate3d(0, -50px, 0);
-  transform: translate3d(0, -50px, 0);
+  -webkit-transform: translate3d(0, -15px, 0);
+  -moz-transform: translate3d(0, -15px, 0);
+  -o-transform: translate3d(0, -15px, 0);
+  -ms-transform: translate3d(0, -15px, 0);
+  transform: translate3d(0, -15px, 0);
 }
 
 .card [data-header-animation="true"] {
