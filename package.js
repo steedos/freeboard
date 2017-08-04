@@ -1,6 +1,6 @@
 Package.describe({
 	name: 'steedos:freeboard',
-	version: "1.1.3_12",
+	version: "1.1.3_13",
 	summary: "freeboard",
 	git: "https://github.com/steedos/freeboard"
 });
@@ -40,6 +40,8 @@ Package.onUse(function(api) {
 	api.addAssets('assets/fonts/ionicons.ttf', 'client');
 	api.addAssets('assets/material/material-dashboard.css', 'client');
 	api.addAssets('assets/material/bootstrap.min.css', 'client');
+	api.addAssets('assets/moment/moment-with-locales.min.js', 'client');
+	api.addAssets('assets/moment/moment.min.js', 'client');
 	api.addAssets('assets/img/logo.jpg', 'client');
 
 	api.addAssets('assets/font-awesome-4.7.0/css/font-awesome.min.css', 'client');
