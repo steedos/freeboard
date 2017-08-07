@@ -141,3 +141,7 @@ body.zoom-large{
 	height: auto;
 	border-radius: 5px;
 }
+
+.table > tbody > tr > td{
+	padding: 7px 8px !important;
+}

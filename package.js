@@ -43,6 +43,9 @@ Package.onUse(function(api) {
 	api.addAssets('assets/moment/moment-with-locales.min.js', 'client');
 	api.addAssets('assets/moment/moment.min.js', 'client');
 	api.addAssets('assets/img/logo.jpg', 'client');
+	api.addAssets('assets/img/card-1.jpg', 'client');
+	api.addAssets('assets/img/card-2.jpg', 'client');
+	api.addAssets('assets/img/card-3.jpg', 'client');
 
 	api.addAssets('assets/font-awesome-4.7.0/css/font-awesome.min.css', 'client');
 	api.addAssets('assets/font-awesome-4.7.0/fonts/fontawesome-webfont.eot', 'client');
