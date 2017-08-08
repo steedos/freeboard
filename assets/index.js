@@ -1,3 +1,4 @@
+Steedos = window.parent.Steedos || {}
 dashboardExtend = {
 	jQueryUrl:function(name){
 		var reg = new RegExp("(^|&)"+name+"=([^&]*)(&|$)"); 
@@ -69,7 +70,7 @@ head.js("js/freeboard_plugins.min.js",
 			$("body").addClass("light");
 			$("body").addClass("li-height-auto");
 			if (dashboardId){
-				var url = localStorage.getItem("Meteor.dashboard");
+				var url = Steedos.absoluteUrl("/api/dashboard/"+dashboardId);
 				$.ajax({
 					url: url,
 					type: "get",
