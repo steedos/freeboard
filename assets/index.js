@@ -33,8 +33,8 @@ dashboardExtend = {
 		});
 	},
 	changeDashboardHeaders:function(dashboardContent){
-		var userId = this.cookieVal("X-User-Id");
-		var tokenId = this.cookieVal("X-Auth-Token");
+		var userId = localStorage.getItem('Meteor.userId')
+		var tokenId = localStorage.getItem('Meteor.loginToken')
 		var spaceId = this.jQueryUrl("spaceId");
 		if(dashboardContent.datasources){
 			dashboardContent.datasources.forEach(function(data){
