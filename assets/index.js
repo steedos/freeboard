@@ -69,9 +69,9 @@ head.js("js/freeboard_plugins.min.js",
 			$("body").addClass("light");
 			$("body").addClass("li-height-auto");
 			if (dashboardId){
-	
+				var url = localStorage.getItem("Meteor.dashboard");
 				$.ajax({
-					url: "/api/dashboard/"+dashboardId,
+					url: url,
 					type: "get",
 
 					success: function(data){
