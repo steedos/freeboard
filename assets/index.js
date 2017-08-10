@@ -71,10 +71,28 @@ head.js("js/freeboard_plugins.min.js",
 			$("body").addClass("li-height-auto");
 			if (dashboardId){
 				var url = Steedos.absoluteUrl("/api/dashboard/"+dashboardId);
+				var headers = [];
+				var Accounts = window.parent.Accounts;
+				if(Accounts && Accounts._storedLoginToken){
+					headers.push({
+						name: "x-user-id",
+						value: Accounts.userId()
+					});
+					headers.push({
+						name: "x-auth-token",
+						value: Accounts._storedLoginToken()
+					});
+				}
 				$.ajax({
 					url: url,
 					type: "get",
-
+					beforeSend: function(XHR) {
+						if (headers && headers.length) {
+							return headers.forEach(function(header) {
+								return XHR.setRequestHeader(header.name, header.value);
+							});
+						}
+					},
 					success: function(data){
 						dashboardContent = data.freeboard ? JSON.parse(data.freeboard) : {};
 						// 根据接口返回的编辑权限执行freeboard.initialize函数
@@ -86,6 +104,16 @@ head.js("js/freeboard_plugins.min.js",
 							freeboard.setEditing(false,false);
 						});
 						dashboardExtend.bindDashboardSaveEvent(dashboardId);
+					},
+					error : function (XMLHttpRequest, textStatus, errorThrown) {
+						var errorMsg = errorThrown;
+						if(XMLHttpRequest.responseJSON && XMLHttpRequest.responseJSON.error){
+							errorMsg = XMLHttpRequest.responseJSON.error;
+						}
+						var toastr = window.parent.toastr;
+						if(toastr){
+							toastr.error(errorMsg);
+						}
 					}
 				})
 			}
