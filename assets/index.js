@@ -75,11 +75,11 @@ head.js("js/freeboard_plugins.min.js",
 				var Accounts = window.parent.Accounts;
 				if(Accounts && Accounts._storedLoginToken){
 					headers.push({
-						name: "x-user-id",
+						name: "X-User-Id",
 						value: Accounts.userId()
 					});
 					headers.push({
-						name: "x-auth-token",
+						name: "X-Auth-Token",
 						value: Accounts._storedLoginToken()
 					});
 				}
