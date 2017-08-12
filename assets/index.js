@@ -70,29 +70,22 @@ head.js("js/freeboard_plugins.min.js",
 			$("body").addClass("light");
 			$("body").addClass("li-height-auto");
 			if (dashboardId){
-				var url = Steedos.absoluteUrl("/api/dashboard/"+dashboardId);
-				var headers = [];
 				var Accounts = window.parent.Accounts;
-				if(Accounts && Accounts._storedLoginToken){
-					headers.push({
-						name: "X-User-Id",
-						value: Accounts.userId()
-					});
-					headers.push({
-						name: "X-Auth-Token",
-						value: Accounts._storedLoginToken()
-					});
+				if(Accounts){
+					userId = Accounts.userId();
+					loginToken = Accounts._storedLoginToken();
+				}else{
+					userId = localStorage.getItem('Meteor.userId');
+					loginToken = localStorage.getItem('Meteor.loginToken');
 				}
+				var query = "?userId="+userId+"&authToken="+loginToken;
+				var url = Steedos.absoluteUrl("/api/dashboard/"+dashboardId+query);
+				var headers = [];
+				
 				$.ajax({
 					url: url,
 					type: "get",
-					beforeSend: function(XHR) {
-						if (headers && headers.length) {
-							return headers.forEach(function(header) {
-								return XHR.setRequestHeader(header.name, header.value);
-							});
-						}
-					},
+					
 					success: function(data){
 						dashboardContent = data.freeboard ? JSON.parse(data.freeboard) : {};
 						// 根据接口返回的编辑权限执行freeboard.initialize函数
