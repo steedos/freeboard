@@ -1,8 +1,37 @@
 Steedos = window.parent.Steedos || {}
+userInfo = {
+	userId:(function(){
+		var Accounts = window.parent.Accounts;
+		if(Accounts){
+			var userId = Accounts.userId();
+		}else{
+			var userId = localStorage.getItem('Meteor.userId');
+		}
+		return userId;
+	})(),
+	authToken:(function(){
+		var Accounts = window.parent.Accounts;
+		if(Accounts){
+			var authToken = Accounts._storedLoginToken();
+		}else{
+			var authToken = localStorage.getItem('Meteor.loginToken');
+		}
+		return authToken;
+	})()
+}
 dashboardExtend = {
-	jQueryUrl:function(name){
+	jQueryUrl:function(name,url){
+		if(url){
+			if(url.split("?")[1]){
+				var search = "?"+url.split("?")[1];
+			}else{
+				var search = "";
+			}
+		}else{
+			var search = window.location.search;
+		}
 		var reg = new RegExp("(^|&)"+name+"=([^&]*)(&|$)"); 
-		var r = window.location.search.substr(1).match(reg);
+		var r = search.substr(1).match(reg);
 		if (r != null) return unescape(r[2]);
 		return null;
 	},
@@ -32,6 +61,29 @@ dashboardExtend = {
 				}
 			})
 		});
+	},
+	changeDashboardURL:function(dashboardContent){
+		var reg = /^\/[\w\W]*/;
+		var userId = userInfo.userId;
+		var authToken = userInfo.authToken;
+		var spaceId = this.jQueryUrl("spaceId");
+		var query = "?userId="+userId+"&authToken="+authToken+"&spaceId="+spaceId;
+		if(dashboardContent.datasources){
+			dashboardContent.datasources.forEach(function(data){
+				if(data){
+					var url = data.settings.url;
+					var relUrl = url.split("?")[0];
+					var state = dashboardExtend.jQueryUrl("state",url);
+					var limit = dashboardExtend.jQueryUrl("limit",url);
+					state ? state = "&state="+state : state = "";
+					limit ? limit = "&limit="+limit : limit = "";
+					query = query + state + limit;
+					if(reg.test(relUrl)){
+						data.settings.url = Steedos.absoluteUrl(relUrl+query);
+					}
+				}
+			})
+		}
 	},
 	changeDashboardHeaders:function(dashboardContent){
 		var userId = localStorage.getItem('Meteor.userId')
@@ -81,7 +133,7 @@ head.js("js/freeboard_plugins.min.js",
 				var query = "?userId="+userId+"&authToken="+loginToken;
 				var url = Steedos.absoluteUrl("/api/dashboard/"+dashboardId+query);
 				var headers = [];
-				
+
 				$.ajax({
 					url: url,
 					type: "get",
@@ -89,7 +141,8 @@ head.js("js/freeboard_plugins.min.js",
 					success: function(data){
 						dashboardContent = data.freeboard ? JSON.parse(data.freeboard) : {};
 						// 根据接口返回的编辑权限执行freeboard.initialize函数
-						dashboardExtend.changeDashboardHeaders(dashboardContent);
+						// dashboardExtend.changeDashboardHeaders(dashboardContent);
+						dashboardExtend.changeDashboardURL(dashboardContent);
 						freeboard.initialize(true);
 						// 根据接口返回的脚本内容执行freeboard.loadDashboard加载dashboard脚本
 						dashboardContent.allow_edit = data.isEditable;
