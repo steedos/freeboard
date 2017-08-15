@@ -67,11 +67,11 @@ dashboardExtend = {
 		var userId = userInfo.userId;
 		var authToken = userInfo.authToken;
 		var spaceId = this.jQueryUrl("spaceId");
-		var query = "?userId="+userId+"&authToken="+authToken+"&spaceId="+spaceId;
 		if(dashboardContent.datasources){
 			dashboardContent.datasources.forEach(function(data){
 				if(data){
-					var url = data.settings.url;
+					var query = "?userId="+userId+"&authToken="+authToken+"&spaceId="+spaceId;
+					var url = data.settings.url || "";
 					var relUrl = url.split("?")[0];
 					var state = dashboardExtend.jQueryUrl("state",url);
 					var limit = dashboardExtend.jQueryUrl("limit",url);
@@ -92,7 +92,7 @@ dashboardExtend = {
 		if(dashboardContent.datasources){
 			dashboardContent.datasources.forEach(function(data){
 				if(data){
-					headers = data.settings.headers;
+					var headers = data.settings.headers || [];
 				}else{
 					return false;
 				}
