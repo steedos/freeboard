@@ -70,16 +70,16 @@ dashboardExtend = {
 		if(dashboardContent.datasources){
 			dashboardContent.datasources.forEach(function(data){
 				if(data){
-					var query = "?userId="+userId+"&authToken="+authToken+"&spaceId="+spaceId;
+					// var query = "?userId="+userId+"&authToken="+authToken+"&spaceId="+spaceId;
 					var url = data.settings.url || "";
 					var relUrl = url.split("?")[0];
 					var state = dashboardExtend.jQueryUrl("state",url);
 					var limit = dashboardExtend.jQueryUrl("limit",url);
 					state ? state = "&state="+state : state = "";
 					limit ? limit = "&limit="+limit : limit = "";
-					query = query + state + limit;
+					var query = "?" + state + limit;
 					if(reg.test(relUrl)){
-						data.settings.url = Steedos.absoluteUrl(relUrl+query);
+						data.settings.url = Steedos.getUrlWithToken(Steedos.absoluteUrl(relUrl+query));
 					}
 				}
 			})
