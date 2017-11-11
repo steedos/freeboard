@@ -117,6 +117,13 @@ head.js("js/freeboard_plugins.min.js",
 	// *** Load more plugins here ***
 	function() {
 		$(function() {
+			if (Steedos.isNode()){
+				// 去除客户端右击事件
+				document.body.addEventListener('contextmenu', function(ev) { 
+					ev.preventDefault();
+					return false;
+				});
+			}
 			// 需要根据url中dashboardId调用后台相关接口，返回dashboard脚本内容及编辑权限等
 			var dashboardId, dashboardContent;
 			dashboardId = dashboardExtend.jQueryUrl("dashboardId");
